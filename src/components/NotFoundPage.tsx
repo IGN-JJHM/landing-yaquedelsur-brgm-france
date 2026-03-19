@@ -2,9 +2,9 @@ import { Navigation, Footer } from './HomePage';
 
 export default function NotFoundPage() {
   return (
-    <div className="bg-background selection:bg-primary/20 selection:text-primary-foreground min-h-[70vh]">
+    <div className="bg-background selection:bg-primary/20 selection:text-primary-foreground min-h-screen flex flex-col">
       <Navigation />
-      <div className="from-primary/5 via-background to-secondary/5 bg-gradient-to-br p-6">
+      <div className="from-primary/5 via-background to-secondary/5 bg-gradient-to-br p-6 flex-1">
         <div className="mx-auto max-w-3xl py-10">
           <div className="text-center space-y-6">
             <h1 className="font-heading text-foreground text-4xl font-bold md:text-5xl">404</h1>
