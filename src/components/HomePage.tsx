@@ -59,7 +59,7 @@ export const Navigation = () => {
           className="flex items-center transition-opacity hover:opacity-80"
         >
           <img
-            src="/images/logo_ign_blanco.png"
+            src="/images/logos/logo_ign_blanco.png"
             alt="IGN-JJHM - Instituto Geográfico Nacional Joaquín Hungría Morell"
             className="h-16 w-auto"
           />
@@ -980,7 +980,7 @@ const Community = () => {
       fullName: 'Agence Française de Développement',
       description:
         'Institución financiera pública que apoya proyectos que mejoran las condiciones de vida, promueven el desarrollo sostenible y fortalecen la resiliencia frente al cambio climático.',
-      logo: '/images/Logo_RVB_France_AFD.png',
+      logo: '/images/logos/Logo_RVB_France_AFD.png',
       website: 'https://www.afd.fr',
       country: 'Francia',
       logoSize: 'h-16 md:h-24',
@@ -990,7 +990,7 @@ const Community = () => {
       fullName: 'Bureau de Recherches Géologiques et Minières',
       description:
         'Servicio geológico nacional de Francia, responsable de la investigación, gestión y difusión del conocimiento sobre los recursos del subsuelo, los riesgos naturales, el agua y el medio ambiente, apoyando las políticas públicas y el desarrollo sostenible.',
-      logo: '/images/logo-brgm-etat-fr-couleurs.png',
+      logo: '/images/logos/logo-brgm-etat-fr-couleurs.png',
       website: 'https://www.brgm.fr',
       country: 'Francia',
       logoSize: 'h-18 md:h-28',
@@ -1000,7 +1000,7 @@ const Community = () => {
       fullName: 'Ministerio de la Presidencia de la República Dominicana',
       description:
         'Órgano de coordinación del Poder Ejecutivo responsable de articular políticas públicas estratégicas y apoyar la implementación de proyectos prioritarios para el desarrollo nacional.',
-      logo: '/images/logo_minpre.png',
+      logo: '/images/logos/logo_minpre.png',
       website: 'https://minpre.gob.do',
       country: 'República Dominicana',
       logoSize: 'h-16 md:h-24',
@@ -1010,7 +1010,7 @@ const Community = () => {
       fullName: 'Ministerio de Medio Ambiente y Recursos Naturales',
       description:
         'Institución responsable de la formulación y aplicación de políticas para la gestión sostenible del medio ambiente y los recursos naturales de la República Dominicana.',
-      logo: '/images/Logo-Ambiente.png',
+      logo: '/images/logos/Logo-Ambiente.png',
       website: 'https://ambiente.gob.do',
       country: 'República Dominicana',
       logoSize: 'h-16 md:h-24',
