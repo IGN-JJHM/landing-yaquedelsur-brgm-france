@@ -1,0 +1,2 @@
+public/docs/*.pdf filter=lfs diff=lfs merge=lfs -text
+public/datos-sig/*.zip filter=lfs diff=lfs merge=lfs -text

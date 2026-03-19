@@ -1,0 +1,200 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'IGN-JJHM | BRGM',
+  description = 'Mapas temáticos y datos hidrogeológicos del Yaque del Sur para la gestión integrada del agua y la adaptación al cambio climático.',
+  canonicalPath = '',
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site?.href || '';
+const canonicalUrl = `${siteUrl.replace(/\/$/, '')}${canonicalPath}`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#283282" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="icon" type="image/png" href="/favicon-ign.png" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="/vendor/ogticrd-official-header/main.js"
+      defer
+    ></script>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'IGN-JJHM | BRGM - Yaque del Sur',
+        description:
+          'Visor de mapas temáticos e información hidrogeológica sobre la cuenca del Yaque del Sur en la República Dominicana.',
+      })}
+    />
+  </head>
+  <body>
+    <a
+      href="#main-content"
+      class="skip-link"
+    >
+      Saltar al contenido
+    </a>
+    <official-header></official-header>
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  @import 'tailwindcss';
+
+  @custom-variant hover (&:hover);
+
+  @theme inline {
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+    --color-destructive: hsl(var(--destructive));
+    --color-destructive-foreground: hsl(var(--destructive-foreground));
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
+
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    --font-sans: 'Montserrat', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-hand: 'Montserrat', sans-serif;
+  }
+
+  :root {
+    /* Paleta basada en logo IGN (#283282) */
+    /* Azul principal del logo (#283282) - ajustado para mejor contraste */
+    --background: 40 25% 98%;
+    --foreground: 233 35% 20%;
+
+    /* Primary: Azul del logo (#283282) - HSL(233, 52%, 33%) ajustado a 45% para mejor legibilidad */
+    --primary: 233 52% 45%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary: Verde del logo (#1e8c46) - HSL(141, 64%, 33%) */
+    --secondary: 141 64% 40%;
+    --secondary-foreground: 0 0% 98%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 233 35% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 233 35% 20%;
+
+    /* Muted: Tonos neutros que complementan la paleta */
+    --muted: 233 15% 92%;
+    --muted-foreground: 233 25% 45%;
+
+    /* Accent: Verde claro del logo (#288c46) - HSL(138, 55%, 35%) */
+    --accent: 138 55% 50%;
+    --accent-foreground: 233 35% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border e Input: Tonos suaves que complementan */
+    --border: 233 20% 88%;
+    --input: 233 20% 88%;
+    --ring: 233 52% 45%;
+
+    --radius: 1rem;
+  }
+
+  @layer base {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      @apply border-border;
+    }
+
+    body {
+      @apply bg-background text-foreground font-sans antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-heading font-semibold tracking-tight;
+    }
+  }
+
+  button,
+  a,
+  nav,
+  [role='button'],
+  .no-select {
+    @apply select-none;
+  }
+
+  [role='presentation'],
+  .pointer-none,
+  svg[aria-hidden='true'] {
+    pointer-events: none;
+  }
+
+  .absolute.blur-3xl,
+  [class*='blob'],
+  [class*='pattern'] {
+    @apply pointer-events-none;
+  }
+
+  svg:not([role='img']) {
+    pointer-events: none;
+  }
+
+  .font-hand {
+    font-family: var(--font-hand);
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-3 focus:font-bold focus:text-white focus:shadow-lg focus:outline-none;
+  }
+</style>

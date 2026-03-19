@@ -1,0 +1,49 @@
+{
+  "name": "yaque-del-sur-mapas",
+  "private": true,
+  "description": "Visor de mapas temáticos e información hidrogeológica de la cuenca del Yaque del Sur (República Dominicana).",
+  "license": "MIT",
+  "author": "IGN-JJHM, BRGM y colaboradores",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "dev": "astro dev",
+    "format": "prettier --write .",
+    "preview": "astro preview"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "plugins": [
+      "prettier-plugin-astro",
+      "prettier-plugin-tailwindcss"
+    ],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "astro": "^5.18.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}
