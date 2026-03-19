@@ -556,7 +556,7 @@ const Features = () => {
     description: m.description,
     url: GEOVISOR_URLS[i] ?? 'https://mapas.ign.gob.do',
     metadataUrl: METADATA_URLS[i] ?? 'https://mapas.ign.gob.do/metadata',
-    image: i === 0 ? '/images/mapa-fluoruro.png' : i === 1 ? '/images/mapa-aptitud-recarga.png' : i === 2 ? '/images/mapa-lluvia-efectiva.png' : i === 3 ? '/images/mapa-potencial-hidrogeologico.png' : i === 4 ? '/images/mapa-nitratos.png' : i === 5 ? '/images/mapa-pesticidas.png' : i === 6 ? '/images/mapa-recarga-potencial.png' : i === 7 ? '/images/mapa-recarga-hadgem2-es.png' : i === 8 ? '/images/mapa-recarga-mpi-esm-lr.png' : '/images/mapa-fluoruro.png',
+    image: i === 0 ? '/images/mapa-fluoruro.webp' : i === 1 ? '/images/mapa-aptitud-recarga.webp' : i === 2 ? '/images/mapa-lluvia-efectiva.webp' : i === 3 ? '/images/mapa-potencial-hidrogeologico.webp' : i === 4 ? '/images/mapa-nitratos.webp' : i === 5 ? '/images/mapa-pesticidas.webp' : i === 6 ? '/images/mapa-recarga-potencial.webp' : i === 7 ? '/images/mapa-recarga-hadgem2-es.webp' : i === 8 ? '/images/mapa-recarga-mpi-esm-lr.webp' : '/images/mapa-fluoruro.webp',
     testId: `card-mapa-${i}`,
   }));
 
