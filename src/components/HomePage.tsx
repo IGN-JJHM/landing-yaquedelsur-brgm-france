@@ -475,7 +475,7 @@ const SeccionMetodologia = () => {
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               <img
-                src="/images/portada-metodologia.png"
+                src="/images/portada-metodologia.webp"
                 alt="Informe de metodología - Mapas temáticos del Yaque del Sur"
                 className="w-full h-auto"
               />
