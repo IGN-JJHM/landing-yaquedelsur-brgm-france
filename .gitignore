@@ -5,6 +5,10 @@ node_modules/
 dist/
 .astro/
 
+# Recursos pesados (se mantienen solo localmente)
+public/docs/
+public/datos-sig/
+
 # Environment variables (nunca subir secretos)
 .env
 .env.local
