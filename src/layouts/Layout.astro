@@ -33,10 +33,28 @@ const canonicalUrl = `${siteUrl.replace(/\/$/, '')}${canonicalPath}`;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Google Fonts puede bloquear el render.
+      Usamos preload + media="print" con onload para volverlo no-bloqueante,
+      manteniendo un fallback para navegadores sin JS.
+    -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      />
+    </noscript>
 
     <script
       src="/vendor/ogticrd-official-header/main.js"
