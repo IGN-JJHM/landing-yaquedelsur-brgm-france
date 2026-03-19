@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap para ayudar a los buscadores a descubrir las páginas
+Sitemap: https://yaquedelsur.ign.gob.do/sitemap.xml
+
