@@ -980,7 +980,7 @@ const Community = () => {
       fullName: 'Agence Française de Développement',
       description:
         'Institución financiera pública que apoya proyectos que mejoran las condiciones de vida, promueven el desarrollo sostenible y fortalecen la resiliencia frente al cambio climático.',
-      logo: '/images/logos/Logo_RVB_France_AFD.webp',
+      logo: '/images/logos/logo_RVB_France_AFD.webp',
       website: 'https://www.afd.fr',
       country: 'Francia',
       logoSize: 'h-16 md:h-24',
