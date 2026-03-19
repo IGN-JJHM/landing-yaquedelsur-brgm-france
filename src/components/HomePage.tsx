@@ -294,11 +294,11 @@ const Hero = () => {
           {/* Efecto tipo barajas con imágenes de mapas */}
           {[
             // Fondo
-            { image: '/images/mapa-aptitud-recarga.webp', rotation: -8, zIndex: 1, top: '10%', left: '5%', scale: 0.8 },
+            { image: '/images/cards/mapa-aptitud-recarga.webp', rotation: -8, zIndex: 1, top: '10%', left: '5%', scale: 0.8 },
             // Medio
-            { image: '/images/mapa-lluvia-efectiva.webp', rotation: -4, zIndex: 2, top: '5%', left: '10%', scale: 0.8 },
+            { image: '/images/cards/mapa-lluvia-efectiva.webp', rotation: -4, zIndex: 2, top: '5%', left: '10%', scale: 0.8 },
             // Principal al frente
-            { image: '/images/mapa-potencial-hidrogeologico.webp', rotation: 0, zIndex: 3, top: '0%', left: '12%', scale: 0.9 },
+            { image: '/images/cards/mapa-potencial-hidrogeologico.webp', rotation: 0, zIndex: 3, top: '0%', left: '12%', scale: 0.9 },
           ].map((card, idx) => (
             <motion.div
               key={idx}
@@ -556,7 +556,7 @@ const Features = () => {
     description: m.description,
     url: GEOVISOR_URLS[i] ?? 'https://mapas.ign.gob.do',
     metadataUrl: METADATA_URLS[i] ?? 'https://mapas.ign.gob.do/metadata',
-    image: i === 0 ? '/images/mapa-fluoruro.webp' : i === 1 ? '/images/mapa-aptitud-recarga.webp' : i === 2 ? '/images/mapa-lluvia-efectiva.webp' : i === 3 ? '/images/mapa-potencial-hidrogeologico.webp' : i === 4 ? '/images/mapa-nitratos.webp' : i === 5 ? '/images/mapa-pesticidas.webp' : i === 6 ? '/images/mapa-recarga-potencial.webp' : i === 7 ? '/images/mapa-recarga-hadgem2-es.webp' : i === 8 ? '/images/mapa-recarga-mpi-esm-lr.webp' : '/images/mapa-fluoruro.webp',
+    image: i === 0 ? '/images/cards/mapa-fluoruro.webp' : i === 1 ? '/images/cards/mapa-aptitud-recarga.webp' : i === 2 ? '/images/cards/mapa-lluvia-efectiva.webp' : i === 3 ? '/images/cards/mapa-potencial-hidrogeologico.webp' : i === 4 ? '/images/cards/mapa-nitratos.webp' : i === 5 ? '/images/cards/mapa-pesticidas.webp' : i === 6 ? '/images/cards/mapa-recarga-potencial.webp' : i === 7 ? '/images/cards/mapa-recarga-hadgem2-es.webp' : i === 8 ? '/images/cards/mapa-recarga-mpi-esm-lr.webp' : '/images/cards/mapa-fluoruro.webp',
     testId: `card-mapa-${i}`,
   }));
 
