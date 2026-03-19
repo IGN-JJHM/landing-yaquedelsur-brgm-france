@@ -27,6 +27,11 @@
       }
     ]
   },
+  "pnpm": {
+    "overrides": {
+      "h3": "1.15.8"
+    }
+  },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "astro": "^5.18.1",
