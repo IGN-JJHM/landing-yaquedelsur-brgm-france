@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NotFoundPage from '../components/NotFoundPage';
 ---
 
 <Layout
@@ -7,25 +8,6 @@ import Layout from '../layouts/Layout.astro';
   description="La página solicitada no existe. Vuelve al inicio para continuar explorando el visor de mapas temáticos del Yaque del Sur."
   canonicalPath="/404"
 >
-  <main class="bg-background selection:bg-primary/20 selection:text-primary-foreground min-h-[70vh] px-6 py-10">
-    <div class="mx-auto max-w-3xl">
-      <div class="text-center space-y-6">
-        <h1 class="font-heading text-foreground text-4xl font-bold md:text-5xl">
-          404
-        </h1>
-        <p class="text-muted-foreground text-lg leading-relaxed">
-          La página solicitada no está disponible.
-        </p>
-        <div class="pt-2">
-          <a
-            href="/"
-            class="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Volver al inicio
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
+  <NotFoundPage client:load />
 </Layout>
 

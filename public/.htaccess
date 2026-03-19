@@ -24,3 +24,6 @@
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
+
+# Mostrar la página 404 personalizada cuando la ruta no exista
+ErrorDocument 404 /404.html
