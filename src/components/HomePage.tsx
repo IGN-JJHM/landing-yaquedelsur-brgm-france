@@ -294,11 +294,11 @@ const Hero = () => {
           {/* Efecto tipo barajas con imágenes de mapas */}
           {[
             // Fondo
-            { image: '/images/mapa-aptitud-recarga.png', rotation: -8, zIndex: 1, top: '10%', left: '5%', scale: 0.8 },
+            { image: '/images/mapa-aptitud-recarga.webp', rotation: -8, zIndex: 1, top: '10%', left: '5%', scale: 0.8 },
             // Medio
-            { image: '/images/mapa-lluvia-efectiva.png', rotation: -4, zIndex: 2, top: '5%', left: '10%', scale: 0.8 },
+            { image: '/images/mapa-lluvia-efectiva.webp', rotation: -4, zIndex: 2, top: '5%', left: '10%', scale: 0.8 },
             // Principal al frente
-            { image: '/images/mapa-potencial-hidrogeologico.png', rotation: 0, zIndex: 3, top: '0%', left: '12%', scale: 0.9 },
+            { image: '/images/mapa-potencial-hidrogeologico.webp', rotation: 0, zIndex: 3, top: '0%', left: '12%', scale: 0.9 },
           ].map((card, idx) => (
             <motion.div
               key={idx}
