@@ -1015,7 +1015,7 @@ const Community = () => {
       logo: '/images/logos/logo-medio-ambiente.webp',
       website: 'https://ambiente.gob.do',
       country: 'República Dominicana',
-      logoSize: 'h-16 md:h-24',
+      logoSize: 'h-14 md:h-20',
       width: 508,
       height: 120,
       imgClassName: 'h-full w-full object-contain',
