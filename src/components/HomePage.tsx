@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 import {
   Heart,
   Menu,
@@ -61,6 +61,8 @@ export const Navigation = () => {
           <img
             src="/images/logos/logo_ign_blanco.webp"
             alt="IGN-JJHM - Instituto Geográfico Nacional Joaquín Hungría Morell"
+            width={500}
+            height={180}
             className="h-16 w-auto"
           />
         </a>
@@ -332,6 +334,9 @@ const Hero = () => {
               <img
                 src={card.image}
                 alt={`Mapa temático del Yaque del Sur ${idx + 1}`}
+                loading={idx === 2 ? 'eager' : 'lazy'}
+                fetchPriority={idx === 2 ? 'high' : undefined}
+                decoding="async"
                 className="h-full w-full object-cover rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -405,6 +410,8 @@ const FeatureCard = ({
             src={img}
             alt={title}
             className="h-32 w-auto object-contain drop-shadow-md"
+            loading="lazy"
+            decoding="async"
             whileHover={{ scale: 1.1 }}
           />
         </div>
@@ -477,6 +484,10 @@ const SeccionMetodologia = () => {
               <img
                 src="/images/portada-metodologia.webp"
                 alt="Informe de metodología - Mapas temáticos del Yaque del Sur"
+                width={408}
+                height={612}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto"
               />
             </motion.a>
@@ -984,6 +995,9 @@ const Community = () => {
       website: 'https://www.afd.fr',
       country: 'Francia',
       logoSize: 'h-16 md:h-24',
+      width: 1920,
+      height: 1026,
+      imgClassName: 'h-full w-full object-contain',
     },
     {
       name: 'BRGM',
@@ -993,7 +1007,10 @@ const Community = () => {
       logo: '/images/logos/logo-brgm-etat-fr-couleurs.webp',
       website: 'https://www.brgm.fr',
       country: 'Francia',
-      logoSize: 'h-18 md:h-28',
+      logoSize: 'h-16 md:h-24',
+      width: 1920,
+      height: 434,
+      imgClassName: 'h-full w-full object-contain',
     },
     {
       name: 'MINPRE',
@@ -1004,6 +1021,9 @@ const Community = () => {
       website: 'https://minpre.gob.do',
       country: 'República Dominicana',
       logoSize: 'h-16 md:h-24',
+      width: 1280,
+      height: 340,
+      imgClassName: 'h-full w-full object-contain',
     },
     {
       name: 'Ministerio de Medio Ambiente',
@@ -1014,6 +1034,9 @@ const Community = () => {
       website: 'https://ambiente.gob.do',
       country: 'República Dominicana',
       logoSize: 'h-16 md:h-24',
+      width: 508,
+      height: 120,
+      imgClassName: 'h-full w-full object-contain',
     },
   ];
 
@@ -1049,7 +1072,11 @@ const Community = () => {
                   <img
                     src={institution.logo}
                     alt={`${institution.name} Logo`}
-                    className="max-h-full max-w-full object-contain"
+                    width={institution.width}
+                    height={institution.height}
+                    className={institution.imgClassName}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </a>
               </motion.div>
@@ -1176,8 +1203,10 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <I18nProvider>
-      <HomeContent />
-    </I18nProvider>
+    <LazyMotion features={domAnimation}>
+      <I18nProvider>
+        <HomeContent />
+      </I18nProvider>
+    </LazyMotion>
   );
 }

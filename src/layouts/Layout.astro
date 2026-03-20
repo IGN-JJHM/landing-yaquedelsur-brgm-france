@@ -71,6 +71,13 @@ const canonicalUrl = `${siteUrl.replace(/\/$/, '')}${canonicalPath}`;
           'Visor de mapas temáticos e información hidrogeológica sobre la cuenca del Yaque del Sur en la República Dominicana.',
       })}
     />
+
+    {/*
+      Nota:
+      Antes convertíamos los CSS generados por Astro ("/_astro/*.css") a carga no-bloqueante
+      usando media="print" con un script. En PageSpeed eso puede empeorar LCP/CLS,
+      así que se elimina para mantener el CSS crítico.
+    */}
   </head>
   <body>
     <a

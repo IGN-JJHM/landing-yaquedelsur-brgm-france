@@ -146,7 +146,7 @@ export const translations = {
           description:
             'Descarga el conjunto de datos geoespaciales utilizados para elaborar los mapas temáticos del Yaque del Sur.',
           items: [
-            { name: 'Conjunto de datos: Mapas temáticos del río Yaque del Sur', url: '/datos-sig/Mapas-tematicos-Yaque-del-Sur.zip', format: 'GeoPackage' },
+            { name: 'Conjunto de datos: Mapas temáticos del río Yaque del Sur', url: '/datos-sig/Mapas-tematicos-Yaque-del-Sur_gpkg.zip', format: 'GeoPackage' },
           ],
           note: 'Nota: Este conjunto de datos está diseñado para ser utilizado en software de Sistemas de Información Geográfica (SIG). Le recomendamos ver el siguiente video tutorial para su correcta visualización y uso en QGIS.',
           videoUrl: 'https://youtu.be/AEoQCcDRjO0',
@@ -287,7 +287,7 @@ export const translations = {
           title: 'Données géospatiales',
           description: 'Accédez aux jeux de données géographiques dans des formats standard pour une utilisation dans les systèmes d\'information géographique.',
           items: [
-            { name: 'Conjunto de datos mapas temáticos Yaque del Sur', url: '/datos-sig/Mapas-tematicos-Yaque-del-Sur.zip', format: 'GeoPackage' },
+            { name: 'Conjunto de datos mapas temáticos Yaque del Sur', url: '/datos-sig/Mapas-tematicos-Yaque-del-Sur_gpkg.zip', format: 'GeoPackage' },
           ],
           note: 'Note : Cet ensemble de données est conçu pour être utilisé dans un logiciel de Système d\'Information Géographique (SIG). Nous vous recommandons de consulter le tutoriel vidéo suivant pour une visualisation et une utilisation correctes dans QGIS.',
           videoUrl: 'https://www.youtube.com/results?search_query=QGIS+tutoriel+importer+donn%C3%A9es+SIG',
@@ -428,7 +428,7 @@ export const translations = {
           title: 'Geospatial Data',
           description: 'Access geographic datasets in standard formats for use in geographic information systems.',
           items: [
-            { name: 'Conjunto de datos mapas temáticos Yaque del Sur', url: '/datos-sig/Mapas-tematicos-Yaque-del-Sur.zip', format: 'GeoPackage' },
+            { name: 'Conjunto de datos mapas temáticos Yaque del Sur', url: '/datos-sig/Mapas-tematicos-Yaque-del-Sur_gpkg.zip', format: 'GeoPackage' },
           ],
           note: 'Note: This dataset is designed to be used in Geographic Information System (GIS) software. We recommend watching the following video tutorial for correct visualization and use in QGIS.',
           videoUrl: 'https://www.youtube.com/results?search_query=QGIS+tutorial+load+GIS+dataset',
