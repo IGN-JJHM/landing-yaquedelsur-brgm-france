@@ -10,6 +10,11 @@ import {
   ChevronDown,
   ArrowUp,
   ArrowDownRight,
+  HelpCircle,
+  Shield,
+  Phone,
+  Mail,
+  MapPin,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Globe } from 'lucide-react';
@@ -230,7 +235,7 @@ const FloatingBackToTop = () => {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#4a6fd4] text-white shadow-xl shadow-primary/40 transition-colors hover:bg-[#5a7fe4] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          className="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-[#4a6fd4] text-white shadow-xl shadow-primary/40 transition-colors hover:bg-[#5a7fe4] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 md:flex"
           aria-label="Volver al inicio"
         >
           <ArrowUp className="h-6 w-6" />
@@ -774,7 +779,7 @@ const RecursosDesplegables = () => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="w-full min-w-0 max-w-full space-y-4">
       {recursos.map((recurso, index) => {
           const panelId = `recursos-panel-${index}`;
           return (
@@ -784,24 +789,24 @@ const RecursosDesplegables = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: index * 0.1 }}
-          className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
+          className="w-full min-w-0 max-w-full bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
         >
           <button
             type="button"
             onClick={() => toggleItem(index)}
-            className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+            className="flex w-full min-w-0 items-center justify-between gap-2 p-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset sm:p-6"
             aria-expanded={openIndex === index}
             aria-controls={panelId}
           >
-            <div className="flex items-start gap-4 flex-1">
-              <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg flex-shrink-0">
+            <div className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">
+              <div className="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg">
                 <recurso.icon className="h-6 w-6 text-primary" />
               </div>
-              <div className="flex-1">
-                <h3 className="font-heading text-foreground text-xl font-bold mb-2">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-heading mb-2 text-xl font-bold text-foreground break-words">
                   {recurso.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground break-words">
                   {recurso.description}
                 </p>
               </div>
@@ -824,93 +829,70 @@ const RecursosDesplegables = () => {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="overflow-hidden"
+                className="overflow-hidden w-full min-w-0 max-w-full"
               >
-                <div className="border-t border-gray-100 px-6 pb-6 pt-4 text-center md:text-left md:max-w-3xl md:mx-auto">
+                <div className="w-full min-w-0 max-w-full border-t border-gray-100 px-4 pb-6 pt-4 text-center sm:px-6 md:text-left md:max-w-3xl md:mx-auto">
                   {index === 1 &&
                   recurso.items.length === 1 &&
                   recurso.items[0]?.url?.endsWith('.zip') ? (
-                    <div className="overflow-x-auto rounded-lg border border-gray-200">
-                      <table className="w-full table-fixed text-sm">
-                        <tbody>
-                          <tr>
-                            <td className="w-3/4 px-3 py-2 align-middle font-semibold text-primary">
-                              {recurso.items[0].name}
-                            </td>
-                            <td className="w-1/4 px-3 py-2 align-middle text-right">
-                              <a
-                                href={recurso.items[0].url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                                aria-label="Descargar conjunto de datos"
-                              >
-                                <span>Descargar</span>
-                                <ArrowDownRight className="h-3 w-3" aria-hidden />
-                              </a>
-                            </td>
-                          </tr>
-                          <tr className="bg-gray-50">
-                            <td
-                              className="px-3 py-2 text-xs text-muted-foreground"
-                              colSpan={2}
-                            >
-                              <span className="font-semibold">Formato:</span>{' '}
-                              <span>
-                                {(recurso.items[0] as { format?: string }).format ?? 'GeoPackage'}
-                              </span>
-                              <span className="mx-2">·</span>
-                              <span className="font-semibold">Tamaño del archivo:</span>{' '}
-                              <span>96.5&nbsp;MB</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div className="w-full min-w-0 max-w-full rounded-lg border border-gray-200">
+                      <div className="flex flex-col gap-3 p-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                        <p className="min-w-0 flex-1 text-left text-sm font-semibold text-primary break-words">
+                          {recurso.items[0].name}
+                        </p>
+                        <a
+                          href={recurso.items[0].url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex shrink-0 items-center justify-center gap-2 self-stretch rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90 sm:self-center"
+                          aria-label="Descargar conjunto de datos"
+                        >
+                          <span>Descargar</span>
+                          <ArrowDownRight className="h-3 w-3" aria-hidden />
+                        </a>
+                      </div>
+                      <div className="border-t border-gray-100 bg-gray-50 px-3 py-2 text-left text-xs text-muted-foreground break-words">
+                        <span className="font-semibold">Formato:</span>{' '}
+                        <span>
+                          {(recurso.items[0] as { format?: string }).format ?? 'GeoPackage'}
+                        </span>
+                        <span className="mx-2">·</span>
+                        <span className="font-semibold">Tamaño del archivo:</span>{' '}
+                        <span>96.5&nbsp;MB</span>
+                      </div>
                     </div>
                   ) : index === 0 ? (
-                    <div className="space-y-3">
+                    <div className="w-full min-w-0 space-y-3">
                       {recurso.items.map((item) => (
                         <div
                           key={item.name}
-                          className="overflow-x-auto rounded-lg border border-gray-200"
+                          className="w-full min-w-0 max-w-full rounded-lg border border-gray-200"
                         >
-                          <table className="w-full table-fixed text-sm">
-                            <tbody>
-                              <tr>
-                                <td className="w-3/4 px-3 py-2 align-middle font-semibold text-primary">
-                                  {item.name}
-                                </td>
-                                <td className="w-1/4 px-3 py-2 align-middle text-right">
-                                  <a
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                                    aria-label={`Descargar ${item.name}`}
-                                  >
-                                    <span>Descargar</span>
-                                    <ArrowDownRight className="h-3 w-3" aria-hidden />
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr className="bg-gray-50">
-                                <td
-                                  className="px-3 py-2 text-xs text-muted-foreground"
-                                  colSpan={2}
-                                >
-                                  <span className="font-semibold">Formato:</span>{' '}
-                                  <span>PDF</span>
-                                  {('size' in item) && (
-                                    <>
-                                      <span className="mx-2">·</span>
-                                      <span className="font-semibold">Tamaño del archivo:</span>{' '}
-                                      <span>{(item as { size?: string }).size}</span>
-                                    </>
-                                  )}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                          <div className="flex flex-col gap-3 p-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                            <p className="min-w-0 flex-1 text-left text-sm font-semibold text-primary break-words">
+                              {item.name}
+                            </p>
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex shrink-0 items-center justify-center gap-2 self-stretch rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90 sm:self-center"
+                              aria-label={`Descargar ${item.name}`}
+                            >
+                              <span>Descargar</span>
+                              <ArrowDownRight className="h-3 w-3" aria-hidden />
+                            </a>
+                          </div>
+                          <div className="border-t border-gray-100 bg-gray-50 px-3 py-2 text-left text-xs text-muted-foreground break-words">
+                            <span className="font-semibold">Formato:</span> <span>PDF</span>
+                            {('size' in item) && (
+                              <>
+                                <span className="mx-2">·</span>
+                                <span className="font-semibold">Tamaño del archivo:</span>{' '}
+                                <span>{(item as { size?: string }).size}</span>
+                              </>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -1136,28 +1118,156 @@ export const Footer = () => {
   const { raw } = useI18n();
 
   return (
-    <footer className="bg-[#283282] px-6 py-4">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4">
+    <footer className="border-t border-white/10 bg-[#283282] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-8 sm:px-6 md:px-10 md:pt-12 md:pb-5 lg:px-12 lg:pt-14 lg:pb-6">
+      <div className="mx-auto min-w-0 max-w-[1200px]">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-left text-sm text-[#e5e7eb]"
+          transition={{ duration: 0.35 }}
+          className="flex flex-col gap-8 md:gap-10"
         >
-          <p>{raw.footer.copyright}</p>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex items-center justify-end gap-6 text-sm font-semibold text-[#e5e7eb]"
-        >
-          <a href="/faq" className="hover:text-white transition-colors">
-            {raw.footer.faq}
-          </a>
-          <a href="/privacy" className="hover:text-white transition-colors">
-            {raw.footer.privacidad}
-          </a>
+          <div className="grid w-full min-w-0 grid-cols-2 items-start gap-x-4 gap-y-8 sm:gap-x-6 md:gap-x-8 lg:grid-cols-4 lg:gap-y-0 lg:gap-x-8 xl:gap-x-10">
+            <motion.section
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.04 }}
+              aria-labelledby="footer-about-title"
+              className="flex min-w-0 flex-col gap-3 md:gap-3.5"
+            >
+              <h3
+                id="footer-about-title"
+                className="text-[10px] font-semibold uppercase leading-none tracking-[0.1em] text-white/50 sm:text-[11px] sm:tracking-[0.12em] md:text-xs md:tracking-[0.14em] md:text-white/55"
+              >
+                {raw.footer.aboutTitle}
+              </h3>
+              <p className="m-0 max-w-sm">
+                <a
+                  href={raw.footer.aboutUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full min-w-0 cursor-pointer items-start gap-2 rounded-md text-xs text-white/90 md:gap-3 sm:gap-2.5 sm:text-sm sm:justify-start md:text-[0.9375rem] lg:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                >
+                  <span className="font-medium leading-snug">{raw.footer.aboutText}</span>
+                </a>
+              </p>
+            </motion.section>
+
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.05 }}
+              className="flex min-w-0 flex-col gap-3 md:gap-3.5"
+            >
+              <h3
+                id="footer-contact-title"
+                className="text-[10px] font-semibold uppercase leading-none tracking-[0.1em] text-white/50 sm:text-[11px] sm:tracking-[0.12em] md:text-xs md:tracking-[0.14em] md:text-white/55"
+              >
+                {raw.footer.contactTitle}
+              </h3>
+              <address className="m-0 p-0 not-italic" aria-labelledby="footer-contact-title">
+                <ul className="m-0 flex list-none flex-col gap-2.5 p-0 text-xs leading-snug text-white/90 sm:text-sm md:gap-3 md:text-[0.9375rem] md:leading-normal lg:text-base">
+                  <li>
+                    <a
+                      href={`tel:+1${raw.footer.phone.replace(/\D/g, '')}`}
+                      className="inline-flex min-w-0 cursor-pointer items-center gap-2 rounded-md text-white/90 md:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:gap-2.5"
+                    >
+                      <Phone
+                        className="h-3.5 w-3.5 shrink-0 text-white/55 sm:h-4 sm:w-4 md:h-[18px] md:w-[18px] lg:h-5 lg:w-5"
+                        aria-hidden
+                      />
+                      <span className="font-medium">{raw.footer.phone}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`mailto:${raw.footer.email}`}
+                      className="inline-flex min-w-0 cursor-pointer items-center gap-2 break-all rounded-md text-white/90 md:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:gap-2.5"
+                    >
+                      <Mail
+                        className="h-3.5 w-3.5 shrink-0 text-white/55 sm:h-4 sm:w-4 md:h-[18px] md:w-[18px] lg:h-5 lg:w-5"
+                        aria-hidden
+                      />
+                      <span className="font-medium">{raw.footer.email}</span>
+                    </a>
+                  </li>
+                </ul>
+              </address>
+            </motion.div>
+
+            <motion.section
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.08 }}
+              aria-labelledby="footer-visit-title"
+              className="flex min-w-0 flex-col gap-3 md:gap-3.5"
+            >
+              <h3
+                id="footer-visit-title"
+                className="text-[10px] font-semibold uppercase leading-none tracking-[0.1em] text-white/50 sm:text-[11px] sm:tracking-[0.12em] md:text-xs md:tracking-[0.14em] md:text-white/55"
+              >
+                {raw.footer.visitTitle}
+              </h3>
+              <address className="m-0 flex max-w-sm gap-2 not-italic text-xs leading-snug text-white/85 sm:text-sm md:gap-2.5 md:text-[0.9375rem] md:leading-normal lg:text-base">
+                <MapPin
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-white/55 sm:h-4 sm:w-4 md:h-[18px] md:w-[18px] lg:h-5 lg:w-5"
+                  aria-hidden
+                />
+                <span>{raw.footer.visitAddress}</span>
+              </address>
+            </motion.section>
+
+            <motion.nav
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: 0.1 }}
+              aria-labelledby="footer-inform-title"
+              className="flex min-w-0 flex-col gap-3 md:gap-3.5"
+            >
+              <h3
+                id="footer-inform-title"
+                className="text-[10px] font-semibold uppercase leading-none tracking-[0.1em] text-white/50 sm:text-[11px] sm:tracking-[0.12em] md:text-xs md:tracking-[0.14em] md:text-white/55"
+              >
+                {raw.footer.informTitle}
+              </h3>
+              <ul className="m-0 flex list-none flex-col gap-2 p-0 text-xs leading-snug text-white/90 sm:text-sm md:gap-3 md:text-[0.9375rem] md:leading-normal lg:text-base">
+                <li>
+                  <a
+                    href="/privacy"
+                    className="inline-flex w-full min-w-0 cursor-pointer items-center gap-2 rounded-md text-xs text-white/90 md:gap-3 sm:gap-2.5 sm:text-sm sm:justify-start md:text-[0.9375rem] lg:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                  >
+                    <Shield
+                      className="h-3.5 w-3.5 shrink-0 text-white/55 sm:h-4 sm:w-4 md:h-[18px] md:w-[18px] lg:h-5 lg:w-5"
+                      aria-hidden
+                    />
+                    <span className="font-medium">{raw.footer.privacidad}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/faq"
+                    className="inline-flex w-full min-w-0 cursor-pointer items-center gap-2 rounded-md text-xs text-white/90 md:gap-3 sm:gap-2.5 sm:text-sm sm:justify-start md:text-[0.9375rem] lg:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                  >
+                    <HelpCircle
+                      className="h-3.5 w-3.5 shrink-0 text-white/55 sm:h-4 sm:w-4 md:h-[18px] md:w-[18px] lg:h-5 lg:w-5"
+                      aria-hidden
+                    />
+                    <span className="font-medium">{raw.footer.faq}</span>
+                  </a>
+                </li>
+              </ul>
+            </motion.nav>
+          </div>
+
+          <div className="w-full min-w-0 border-t border-white/15 pt-5 md:border-white/10 md:pt-6">
+            <p className="text-left text-xs leading-relaxed text-white/65 sm:text-sm md:text-[0.8125rem] md:text-white/55">
+              {raw.footer.copyright}
+            </p>
+          </div>
         </motion.div>
       </div>
     </footer>
@@ -1167,15 +1277,15 @@ export const Footer = () => {
 function HomeContent() {
   const { raw } = useI18n();
   return (
-    <div className="bg-background selection:bg-primary/20 selection:text-primary-foreground min-h-screen">
+    <div className="min-h-screen w-full min-w-0 max-w-full bg-background selection:bg-primary/20 selection:text-primary-foreground">
       <Navigation />
       <Hero />
       <FloatingBackToTop />
       <SeccionProyecto />
       <SeccionMetodologia />
       <Features />
-      <section id="descargas" className="scroll-mt-24 w-full bg-gray-100 px-6 py-8">
-        <div className="mx-auto max-w-4xl">
+      <section id="descargas" className="scroll-mt-24 w-full min-w-0 max-w-full bg-gray-100 px-4 py-8 sm:px-6">
+        <div className="mx-auto w-full min-w-0 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
